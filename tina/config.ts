@@ -1,4 +1,9 @@
 import { defineConfig } from "tinacms";
+import { heroTemplate } from "./templates/hero";
+import { aboutTemplate } from "./templates/about";
+import { servicesTemplate } from "./templates/services";
+import { galleryTemplate } from "./templates/gallery";
+import { contactTemplate } from "./templates/contact";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -35,52 +40,82 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
+        label: "Website",
+        name: "website",
+        path: "src/content",
+        format: "json",
+
         fields: [
           {
             type: "string",
-            name: "eyebrow",
-            label: "Eyebrow",
-          },
-          {
-            type: "string",
             name: "title",
-            label: "Headline",
-            isTitle: true,
-            required: true,
+            label: "Website Title",
           },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Tagline",
-            isBody: true,
-          },
+
           {
             type: "object",
-            name: "ctaPrimary",
-            label: "Primary button",
-            fields: [
-              { type: "string", name: "label", label: "Label" },
-              { type: "string", name: "href", label: "Link" },
-            ],
-          },
-          {
-            type: "object",
-            name: "ctaSecondary",
-            label: "Secondary button",
-            fields: [
-              { type: "string", name: "label", label: "Label" },
-              { type: "string", name: "href", label: "Link" },
+            name: "sections",
+            label: "Page Sections",
+            list: true,
+
+            templates: [
+              heroTemplate,
+              aboutTemplate,
+              servicesTemplate,
+              galleryTemplate,
+              contactTemplate,
             ],
           },
         ],
-        ui: {
-          // Opens the /tinacms-demo page for visual editing. Change or remove to fit your site.
-          router: () => "/tinacms-demo",
-        },
       },
     ],
   },
 });
+
+// {
+//   name: "post",
+//   label: "Posts",
+//   path: "content/posts",
+//   fields: [
+//     {
+//       type: "string",
+//       name: "eyebrow",
+//       label: "Eyebrow",
+//     },
+//     {
+//       type: "string",
+//       name: "title",
+//       label: "Headline",
+//       isTitle: true,
+//       required: true,
+//     },
+//     {
+//       type: "rich-text",
+//       name: "body",
+//       label: "Tagline",
+//       isBody: true,
+//     },
+//     {
+//       type: "object",
+//       name: "ctaPrimary",
+//       label: "Primary button",
+//       fields: [
+//         { type: "string", name: "label", label: "Label" },
+//         { type: "string", name: "href", label: "Link" },
+//       ],
+//     },
+//     {
+//       type: "object",
+//       name: "ctaSecondary",
+//       label: "Secondary button",
+//       fields: [
+//         { type: "string", name: "label", label: "Label" },
+//         { type: "string", name: "href", label: "Link" },
+//       ],
+//     },
+//   ],
+//   ui: {
+//     // Opens the /tinacms-demo page for visual editing. Change or remove to fit your site.
+//     router: () => "/tinacms-demo",
+//   },
+// },

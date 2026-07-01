@@ -1,0 +1,67 @@
+{
+  "title": "My Business Website",
+  "sections": [
+    {
+      "_template": "hero",
+      "type": "hero",
+      "id": "hero",
+      "label": "Home",
+      "title": "Welcome to Our Company",
+      "image": "/images/hero.jpg",
+      "buttonText": "Contact Us"
+    },
+    {
+      "_template": "services",
+      "type": "services",
+      "id": "services",
+      "label": "Services",
+      "heading": "What We Offer",
+      "items": [
+        {
+          "title": "Web Design",
+          "description": "Modern responsive websites built for your business."
+        },
+        {
+          "title": "SEO",
+          "description": "Improve your search visibility and reach more customers."
+        },
+        {
+          "title": "Maintenance",
+          "description": "Keep your website updated and running smoothly."
+        }
+      ]
+    },
+    {
+      "_template": "about",
+      "type": "about",
+      "id": "about",
+      "label": "About",
+      "heading": "About Our Company",
+      "description": "We are a team focused on creating quality solutions for our customers.",
+      "image": "/images/about_office.webp"
+    },
+    {
+      "_template": "gallery",
+      "type": "gallery",
+      "id": "gallery",
+      "label": "Gallery",
+      "images": [
+        "/images/purple_flower.webp",
+        "/images/horse_in_mountains.webp",
+        "/images/forest.webp"
+      ]
+    },
+    {
+      "_template": "contact",
+      "type": "contact",
+      "id": "contact",
+      "label": "Contact",
+      "heading": "Get In Touch",
+      "description": "Have a question? Send us a message and we will get back to you.",
+      "email": "hello@example.com",
+      "phone": "555-123-4567",
+      "address": "123 Main Street, Cleveland, OH",
+      "buttonText": "Send Message"
+    }
+  ]
+}

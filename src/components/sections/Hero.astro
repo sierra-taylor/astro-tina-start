@@ -1,0 +1,24 @@
+---
+const { data } = Astro.props;
+import { tinaField } from "@tinacms/astro/tina-field";
+const field = tinaField(data, "title");
+---
+
+<section>
+  <!-- <p>hero</p> -->
+  <!-- <pre>{data}</pre> -->
+  <!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
+  <!-- <h1 data-tina-field={tinaField(data, "title")}>
+    {data.title}
+  </h1>
+  <p data-tina-field={tinaField(data, "text")}>
+    {data.text}
+  </p> -->
+  <!-- 
+
+  <a href={data.buttonLink}>
+    {data.buttonText}
+  </a>
+
+  <img src={data.image} /> -->
+</section>

@@ -1,0 +1,27 @@
+---
+import Hero from "./sections/Hero.astro";
+import Services from "./sections/Services.astro";
+import About from "./sections/About.astro";
+import Gallery from "./sections/Gallery.astro";
+import Contact from "./sections/Contact.astro";
+
+const { section } = Astro.props;
+const components = {
+  hero: Hero,
+  about: About,
+  services: Services,
+  gallery: Gallery,
+  contact: Contact,
+} as const;
+type SectionType = keyof typeof components;
+const Component = components[section.type as SectionType];
+---
+
+<!-- <pre>
+{
+  JSON.stringify(section, null, 2)
+}
+</pre>
+<p>{section?.type}</p> -->{
+  Component && <Component section={section} />
+}
