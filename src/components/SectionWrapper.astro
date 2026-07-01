@@ -1,0 +1,10 @@
+---
+import slugify from "../utils/slug";
+const { section } = Astro.props;
+const slug = section.slug ?? slugify(section.label);
+const largeScreenStyles = { "px-4 py-6": section.type !== "hero" };
+---
+
+<section id={slug} class:list={[largeScreenStyles]}>
+  <slot />
+</section>

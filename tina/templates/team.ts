@@ -1,15 +1,13 @@
 import type { Template } from "tinacms";
-export const servicesTemplate: Template = {
-  name: "services",
-  label: "Services",
-
+export const teamTemplate: Template = {
+  name: "team",
+  label: "Team",
   fields: [
     {
       type: "string",
       name: "type",
       ui: { component: "hidden" },
     },
-
     {
       type: "string",
       name: "label",
@@ -30,24 +28,29 @@ export const servicesTemplate: Template = {
     },
     {
       type: "object",
-      name: "items",
-      label: "Services",
+      name: "members",
+      label: "Team members",
       list: true,
-
       ui: {
-        itemProps: (item: any) => ({
-          label: item?.title,
+        itemProps: (member: any) => ({
+          label: member?.name,
         }),
       },
-
       fields: [
         {
           type: "string",
-          name: "title",
+          name: "name",
+          label: "Name",
         },
         {
           type: "string",
-          name: "description",
+          name: "position",
+          label: "Their position or title",
+        },
+        {
+          type: "image",
+          name: "avatar",
+          label: "Avatar image",
         },
       ],
     },

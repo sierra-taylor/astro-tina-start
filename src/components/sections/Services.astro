@@ -2,36 +2,35 @@
 // import type { ServicesSection } from "../../types/sections";
 import { Image } from "astro:assets";
 const { data } = Astro.props; //as ServicesSection;
+const items = data.items;
 ---
 
-<!-- <section id="services" class="flex flex-col my-6">
-  <h4 class="text-center text-4xl">{heading}</h4>
+<h4 class="text-center text-4xl">{data.header}</h4>
 
-  <div class="grid md:grid-cols-2 justify-items-center">
-    {
-      items.map((service) => (
-        <div class="card">
-          {service.image && (
-            <figure>
-              <Image
-                src={service.image}
-                alt={`Image representing ${service.title}`}
-                height={50}
-                width={50}
-              />
-            </figure>
+<div class="grid md:grid-cols-2 align-items-center">
+  {
+    items.map((service: any) => (
+      <div class="card">
+        {service.image && (
+          <figure>
+            <Image
+              src={service.image}
+              alt={`Image representing ${service.title}`}
+              height={50}
+              width={50}
+            />
+          </figure>
+        )}
+        <div class="card-body">
+          <h2 class="card-title">{service.title}</h2>
+          <p>{service.description}</p>
+          {service.buttonText && (
+            <div class="card-actions">
+              <button class="btn btn-primary">{service.buttonText}</button>
+            </div>
           )}
-          <div class="card-body">
-            <h2 class="card-title">{service.title}</h2>
-            <p>{service.description}</p>
-            {service.buttonText && (
-              <div class="card-actions">
-                <button class="btn btn-primary">{service.buttonText}</button>
-              </div>
-            )}
-          </div>
         </div>
-      ))
-    }
-  </div>
-</section> -->
+      </div>
+    ))
+  }
+</div>

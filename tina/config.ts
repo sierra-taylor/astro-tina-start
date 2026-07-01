@@ -4,6 +4,7 @@ import { aboutTemplate } from "./templates/about";
 import { servicesTemplate } from "./templates/services";
 import { galleryTemplate } from "./templates/gallery";
 import { contactTemplate } from "./templates/contact";
+import { teamTemplate } from "./templates/team";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -44,12 +45,20 @@ export default defineConfig({
         name: "website",
         path: "src/content",
         format: "json",
+        ui: {
+          router: () => "/",
+        },
 
         fields: [
           {
             type: "string",
             name: "title",
             label: "Website Title",
+          },
+          {
+            type: "image",
+            name: "logo",
+            label: "Company logo (if applicable)",
           },
 
           {
@@ -62,6 +71,7 @@ export default defineConfig({
               heroTemplate,
               aboutTemplate,
               servicesTemplate,
+              teamTemplate,
               galleryTemplate,
               contactTemplate,
             ],

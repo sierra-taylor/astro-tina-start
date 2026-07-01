@@ -4,21 +4,62 @@ import { tinaField } from "@tinacms/astro/tina-field";
 const field = tinaField(data, "title");
 ---
 
-<section>
-  <!-- <p>hero</p> -->
-  <!-- <pre>{data}</pre> -->
-  <!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
-  <!-- <h1 data-tina-field={tinaField(data, "title")}>
-    {data.title}
-  </h1>
-  <p data-tina-field={tinaField(data, "text")}>
-    {data.text}
-  </p> -->
-  <!-- 
+<!-- <p>hero</p> --><!-- <pre>{data}</pre> --><!-- <pre>{JSON.stringify(section, null, 2)}</pre> -->
+<section
+  id="hero"
+  class="hero min-h-screen"
+  style={`background-image: url('${data.image}')`}
+>
+  {data.image && <div class="hero-overlay" />}
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1
+        class="text-4xl text-center font-semibold md:text-6xl"
+        data-tina-field={tinaField(data, "title")}
+      >
+        {data.title}
+      </h1>
 
-  <a href={data.buttonLink}>
-    {data.buttonText}
-  </a>
-
-  <img src={data.image} /> -->
+      <h2
+        class="mt-10 text-lg text-center opacity-80 md:text-2xl"
+        data-tina-field={tinaField(data, "subtitle")}
+      >
+        {data.subtitle}
+      </h2>
+      <div class="flex justify-evenly mt-10">
+        {
+          data.buttonText && (
+            <a
+              class="btn"
+              href="#contact"
+              data-tina-field={tinaField(data, "buttonText")}
+            >
+              {data.buttonText}
+            </a>
+          )
+        }
+        {
+          data.secondaryButtonText && (
+            <button class="btn">{data.secondaryButtonText}</button>
+          )
+        }
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #hero-section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+</style>

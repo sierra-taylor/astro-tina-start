@@ -1,88 +1,13 @@
 ---
-const { data } = Astro.props;
+const { siteTitle } = Astro.props;
 ---
 
-<!-- DO WITH COSMOS-ASTRO-SINGLE-PAGE -->
-<footer>{data.text}</footer>
-<!-- import { defineConfig } from "tinacms";
-
-export default defineConfig({
-  branch: "main",
-
-  build: {
-    outputFolder: "admin",
-    publicFolder: "public",
-  },
-
-  collections: [
-    {
-      name: "pages",
-      label: "Pages",
-      path: "src/content",
-
-      fields: [
-        {
-          type: "object",
-          name: "sections",
-          label: "Page Sections",
-          list: true,
-          templates: [
-            {
-              name: "hero",
-              label: "Hero",
-              fields: [
-                {
-                  type: "text",
-                  name: "title",
-                  label: "Title",
-                },
-                {
-                  type: "textarea",
-                  name: "subtitle",
-                  label: "Subtitle",
-                },
-              ],
-            },
-
-            {
-              name: "features",
-              label: "Features",
-              fields: [
-                {
-                  type: "object",
-                  name: "items",
-                  label: "Items",
-                  list: true,
-                  fields: [
-                    {
-                      type: "text",
-                      name: "title",
-                      label: "Title",
-                    },
-                    {
-                      type: "textarea",
-                      name: "text",
-                      label: "Text",
-                    },
-                  ],
-                },
-              ],
-            },
-
-            {
-              name: "testimonials",
-              label: "Testimonials",
-              fields: [
-                {
-                  type: "textarea",
-                  name: "quote",
-                  label: "Quote",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ],
-}); -->
+<footer
+  class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4"
+>
+  <aside>
+    <p>
+      Copyright © {new Date().getFullYear()} - All right reserved by {siteTitle}
+    </p>
+  </aside>
+</footer>
